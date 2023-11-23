@@ -12,7 +12,6 @@ class BookViewSet(viewsets.ModelViewSet):
     #FIXME! Если будет время, добавить фильтр для поиска
 
     def get_serializer_class(self):
-        print(self.action)
         if self.action == 'create':
             return BookCreateSerializer
         return BookSerializer

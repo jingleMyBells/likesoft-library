@@ -82,3 +82,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+BOOK_PROPS = {
+    'title_length': 771,
+    'author_length': 255,
+    'isbn_length': 26,
+}
