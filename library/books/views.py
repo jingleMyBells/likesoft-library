@@ -8,9 +8,6 @@ class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
 
-    #FIXME! Добавить пагинацию
-    #FIXME! Если будет время, добавить фильтр для поиска
-
     def get_serializer_class(self):
         if self.action == 'create':
             return BookCreateSerializer

@@ -16,7 +16,6 @@ class UserCreateSerializer(serializers.ModelSerializer):
         fields = ('username', 'email')
 
     def create(self, validated_data):
-        #FIXME! место для задачи в сельдерее
         username = validated_data.get(
             'username',
             DEFAULT_USERNAME,
