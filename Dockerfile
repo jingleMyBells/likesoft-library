@@ -3,4 +3,8 @@ WORKDIR /app
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt --no-cache-dir
 COPY library/ .
-CMD ["gunicorn", "library.wsgi:application", "--bind", "0:8000" ]
+COPY ./deploy/server-entrypoint.sh ./entrypoints/server-entrypoint.sh
+COPY ./deploy/worker-entrypoint.sh ./entrypoints/worker-entrypoint.sh
+
+RUN chmod +x /app/entrypoints/server-entrypoint.sh
+RUN chmod +x /app/entrypoints/worker-entrypoint.sh

@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 
     'books.apps.BooksConfig',
     'users.apps.UsersConfig',
@@ -55,12 +56,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'library.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -109,3 +104,9 @@ BOOK_PROPS = {
     'author_length': 255,
     'isbn_length': 26,
 }
+
+CELERY_BROKER_URL = os.getenv('REDIS_URI', default='redis://redis:6379/0')
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_EMAIL_RECIPIENT = os.getenv('DEFAULT_EMAIL', default='admin@admin.admin')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', default='admin@admin.admin')
