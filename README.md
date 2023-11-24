@@ -28,7 +28,7 @@ cat env_example.txt > .env
 
 ## API Endpoints:
 - [GET/POST/PATCH/DELETE: books](http://localhost/books/)
-- [POST: books](http://localhost/users/)
+- [POST: users](http://localhost/users/)
 
 
 #### Стэк
