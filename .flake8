@@ -1,0 +1,4 @@
+[flake8]
+application-import-names = library,books,users
+exclude = .git,__pycache__,venv,manage.py,settings.py,migrations,__init__.py
+import-order-style = google
