@@ -1,10 +1,15 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-&m5^zw2)8c2+r%f@q0*pb7)_$8=0(0h_10peg4j-%q^f-91r9j'
+SECRET_KEY = os.getenv('D_KEY', default='library-secret')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG_MODE', default='ON').lower() in ('on', 'yes', 'true')
 
 ALLOWED_HOSTS = ['*']
 
@@ -50,12 +55,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'library.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': os.getenv('MYSQL_DATABASE', default=BASE_DIR / 'db.sqlite3'),
+        'USER': os.getenv('MYSQL_USER', default='mysql'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', default='12345'),
+        'HOST': os.getenv('DB_HOST', default='localhost'),
+        'PORT': os.getenv('DB_PORT', default='5432'),
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -80,7 +97,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static_files/'
+STATIC_ROOT = BASE_DIR / 'static_files'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
