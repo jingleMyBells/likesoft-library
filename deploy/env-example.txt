@@ -1,0 +1,10 @@
+DB_ENGINE=django.db.backends.mysql
+DB_HOST=db
+DB_PORT=3306
+D_KEY=likesoft-library-secret
+DEBUG_MODE=False
+MYSQL_ROOT_PASSWORD=12345
+MYSQL_DATABASE=library
+MYSQL_USER=mysql
+MYSQL_PASSWORD=12345
+REDIS_URI=redis://redis:6379/0
