@@ -8,7 +8,7 @@
 
 Склонировать репозиторий
 ```bash
-git clone git@github.com:jingleMyBells/likesoft-library.git
+git clone https://github.com/jingleMyBells/likesoft-library.git
 ```
 
 Перейти в каталог с проектом и конфигурационным файлом развертки
